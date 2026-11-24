@@ -666,6 +666,8 @@ body.ovh .topbar{display:none}
 @media(max-width:1440px){.t-premium .hd nav{gap:18px;letter-spacing:.07em;font-size:12px}}
 .hw{min-width:0}.hd nav{min-width:0}
 
+.dh2{display:grid;gap:24px;align-items:center;border:2px solid var(--ac);border-radius:var(--cr,16px);padding:clamp(22px,4vw,40px);background:color-mix(in srgb,var(--ac) 6%,var(--sf))}.dh2 h2{margin-bottom:10px}.dh2 p{color:var(--mut)}@media(min-width:760px){.dh2{grid-template-columns:1fr 1fr;gap:44px}}
+
 /* START: sadə, zövqlü vitrin */
 .bb{gap:8px}
 .bb span{background:var(--ac);color:var(--ac-ink);border-radius:99px;min-width:20px;height:20px;display:inline-grid;place-items:center;font-size:11px;padding:0 5px}
@@ -797,15 +799,15 @@ special: {
 },
 offer: {
   headline: "Tur şirkətiniz üçün sorğu toplayan sayt",
-  needs: ["Turların siyahısı: proqram, qiymət, daxil olanlar", "Otel və istiqamət şəkilləri", "Lisenziya və müqavilə şərtləri", "Domen və hostinq (sizin adınıza)", "Loqo və əlaqə məlumatları"],
+  needs: ["Turların siyahısı: proqram, qiymət, daxil olanlar", "Otel və istiqamət şəkilləri", "Lisenziya və müqavilə şərtləri", "Domen və hostinq varsa, giriş məlumatları (yoxdursa, birlikdə seçirik)", "Loqo və əlaqə məlumatları"],
   stack: { start: "pulsuz tema", plus: "WooCommerce (sorğu rejimi) və ya tur plugini", premium: "tur plugini, fərdi dizayn və kalkulyator" },
-  start: { price: 399, for: "Turlarını göstərib WhatsApp ilə sorğu alan agentlik", lead: "START paketi turları qiyməti və proqramı ilə göstərən, sorğunu hazır WhatsApp mesajı ilə qəbul edən saytdır.",
+  start: { price: 299, for: "Turlarını göstərib WhatsApp ilə sorğu alan agentlik", lead: "START paketi turları qiyməti və proqramı ilə göstərən, sorğunu hazır WhatsApp mesajı ilə qəbul edən saytdır.",
     inc: ["Brendə uyğunlaşdırılmış dizayn", "Ana səhifə və turlar kataloqu (3–5 istiqamət)", "20 tura qədər: qiymət, müddət, proqram", "Hər tur üçün ayrıca səhifə", "Turları seçib bir WhatsApp mesajı ilə sorğu", "Haqqımızda və Əlaqə səhifələri", "Mobil uyğunluq", "WordPress admin paneli və təlim"],
     exc: ["Onlayn sorğu forması və tarix seçimi (PLUS paketində)", "Real vaxtda otel və bilet sistemi ilə inteqrasiya"] },
-  plus: { price: 799, for: "Saytdan sorğu və ilkin ödəniş qəbul edən agentlik", lead: "PLUS paketi otel səviyyəsi, nəfər sayı və gediş tarixi ilə tam sorğu forması olan tur saytıdır.",
+  plus: { price: 699, for: "Saytdan sorğu və ilkin ödəniş qəbul edən agentlik", lead: "PLUS paketi otel səviyyəsi, nəfər sayı və gediş tarixi ilə tam sorğu forması olan tur saytıdır.",
     inc: ["START-dakı hər şey", "Onlayn sorğu: tarix, nəfər, uşaq, otel səviyyəsi", "Otel səviyyəsinə görə qiymət variantları", "Təxmini cəmin avtomatik hesablanması", "İlkin ödəniş inteqrasiyası*", "Promo kod", "Axtarış", "40 tura qədər yerləşdirmə", "Rezervasiya və ödəniş şərtləri səhifəsi, FAQ", "Xəritə və iş saatları", "1 ay Standart texniki xidmət hədiyyə"],
     exc: ["Aviabilet və otel axtarış sistemi (GDS) inteqrasiyası"] },
-  premium: { price: 1399, for: "Güclü brend qurmaq istəyən tur şirkəti", lead: "PREMIUM paketi fərdi dizayn, tur kalkulyatoru, menecer profilləri və qalereya ilə premium tur saytıdır.",
+  premium: { price: 1199, for: "Güclü brend qurmaq istəyən tur şirkəti", lead: "PREMIUM paketi fərdi dizayn, tur kalkulyatoru, menecer profilləri və qalereya ilə premium tur saytıdır.",
     inc: ["PLUS-dakı hər şey", "Fərdi dizayn: bu demodakı görünüş WordPress-də birə-bir", "Tur kalkulyatoru: istiqamət, gecə, nəfər, otel", "Filtrlər: istiqamət, qiymət, tur tipi", "Seçilmişlər və tez baxış", "Menecer profilləri və qalereya", "Mərhələli sorğu forması", "Tam ekran slayder və animasiyalar", "Sürət optimizasiyası və genişləndirilmiş test"],
     exc: [] },
   compare: [["Tur sayı", "20", "40", "60"], ["Dizayn", "Brendə uyğun", "Brendə uyğun", "Fərdi"], ["WhatsApp ilə sorğu", true, true, true], ["Onlayn sorğu forması", false, true, true], ["Otel səviyyəsi seçimi", false, true, true], ["İlkin ödəniş", false, true, true], ["Tur kalkulyatoru", false, false, true], ["Filtrlər və seçilmişlər", false, false, true], ["Menecer profilləri və qalereya", false, false, true], ["Hədiyyə texniki xidmət", false, "1 ay", "1 ay"]]
@@ -1164,13 +1166,14 @@ V.offer = {
     seo("Sayt təklifi", `${names[TN]} paketi: ${money(me.price)}.`);
     const lst = (a, no) => `<ul class="ckl ${no ? "no" : ""}">${a.map(x => `<li>${x}</li>`).join("")}</ul>`;
     const vd = wa(`Salam! ${C.brand} demo saytı üçün ${names[TN]} paketi ilə maraqlanıram.`, AG);
-    const exc = O.exc || ["Domen", "Hosting", "Ödənişli WordPress temaları", "Premium plugin və lisenziyalar", "Ödəniş provayderinin komissiyaları", "SMS və digər üçüncü tərəf xidmətləri"];
+    const exc = O.exc || ["Ödənişli WordPress temaları", "Premium plugin və lisenziyalar", "Ödəniş provayderinin komissiyaları", "SMS və digər üçüncü tərəf xidmətləri"];
     const links = ["start", "plus", "premium"].map(k => `<a class="tlink ${k === TN ? "on" : ""}" href="${k === TN ? "#/" : `../demo-${k}-${C.key}/`}"><small>${names[k]}</small><b>${money(O[k].price)}</b><span>${O[k].for}</span>${k === TN ? "<em>Bu demo</em>" : "<em>Demoya bax →</em>"}</a>`).join("");
     const cmp = T >= 3 && O.compare ? `<h2 class="mt">Paketlərin müqayisəsi</h2><div class="tbl"><table><thead><tr><th></th><th>Start</th><th>Plus</th><th class="hl">Premium</th></tr></thead><tbody>${O.compare.map(r => `<tr><td>${r[0]}</td>${r.slice(1).map((v, i) => `<td class="${i === 2 ? "hl" : ""}">${v === true ? "✓" : v === false ? "—" : v}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "";
     return `<section class="pg offer"><div class="w"><div class="oh"><div>${eyebrow("Valeh Digital · Sayt təklifi")}<h1>${O.headline || "Bu sayt sizin biznesiniz üçün"}</h1><p class="lead">${me.lead}</p></div>
-<div class="opc"><small>${names[TN]} paketi</small><div class="amt">${(me.price).toLocaleString("en-US")} <span>AZN</span></div><p>Bir dəfəlik layihə haqqı. Domen və hostinq ayrıca.</p><a class="btn pri wide" target="_blank" rel="noopener" href="${vd}">Bu paketlə maraqlanıram</a></div></div>
+<div class="opc"><small>${names[TN]} paketi</small><div class="amt">${(me.price).toLocaleString("en-US")} <span>AZN</span></div><p>Bir dəfəlik layihə haqqı. Domen və hostinq sizin seçiminizdir.</p><a class="btn pri wide" target="_blank" rel="noopener" href="${vd}">Bu paketlə maraqlanıram</a></div></div>
 <div class="tlinks">${links}</div>
-<div class="two"><div><h2>Qiymətə daxildir</h2>${lst(me.inc)}</div><div><h2>Qiymətə daxil deyil</h2>${lst([...exc, ...(me.exc || [])], 1)}<p class="note">Domen və hostinq sizin adınıza qeydiyyatdan keçir. Quraşdırma və texniki sazlamanı mən edirəm.${O.platformNote ? " " + O.platformNote : ""}</p></div></div>
+<div class="two"><div><h2>Qiymətə daxildir</h2>${lst(me.inc)}</div><div><h2>Qiymətə daxil deyil</h2>${lst([...exc, ...(me.exc || [])], 1)}${O.platformNote ? `<p class="note">${O.platformNote}</p>` : ""}</div></div>
+<div class="dh2 mt"><div><p class="eyebrow">Sizin seçiminiz</p><h2>Domen və hostinq</h2><p>Saytınız, domeniniz və hostinqiniz həmişə sizin adınıza olur. Bizdən asılı qalmırsınız və istədiyiniz vaxt başqa mütəxəssisə keçə bilərsiniz.</p></div>${lst(["Domen və ya hostinqiniz varsa, onu istifadə edirik", "Yoxdursa, sizin adınıza qeydiyyatdan keçirib quraşdırırıq", "Xərci birbaşa provayderə ödəyirsiniz, üstünə heç nə əlavə etmirik", "Quraşdırma və texniki sazlama paketə daxildir"])}</div>
 ${cmp}
 <h2 class="mt">İş prosesi</h2><div class="osteps">${[["Demo", "Bu sayt kompüterdə və telefonda yoxlanılır."], ["Razılaşma", "Paket, iş həcmi, müddət, müqavilə və ödəniş qaydası dəqiqləşir."], ["WordPress-ə köçürmə", `Təsdiqlənmiş dizayn sizin domeninizdə WordPress-də qurulur${O.stack && O.stack[TN] ? " (" + O.stack[TN] + ")" : ""}.`], ["Test", "Mobil və kompüter görünüşü, formalar və sifariş düymələri yoxlanılır."], ["Təhvil", "Admin panelin istifadəsi göstərilir və sayt təhvil verilir."]].map((s, i) => `<div><i>0${i + 1}</i><b>${s[0]}</b><span>${s[1]}</span></div>`).join("")}</div>
 <div class="two mt"><div><h2>Ödəniş</h2>${lst(["50% ilkin ödəniş", "Qalan 50% üç aylıq hissə ilə ödənə bilər", "Hissəli ödəniş yalnız müqavilə və ödəniş cədvəli ilə"])}</div><div><h2>Sizdən lazım olanlar</h2>${lst(O.needs)}</div></div>
