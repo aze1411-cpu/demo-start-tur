@@ -830,7 +830,7 @@ const L = Object.assign({
   featured: "Seçilmişlər", featuredTitle: "Ən çox seçilənlər", newTitle: "Yeni gələnlər", infoNav: "Çatdırılma", directWa: "Yalnız bunu WhatsApp ilə sifariş et",
   feeNote: "Çatdırılma haqqı sifariş zamanı dəqiqləşir.", cta: "Kataloqa bax"
 }, C.L || {});
-const WA = C.wa || "994XXXXXXXXX", AG = "994XXXXXXXXX";
+const WA = C.wa || "994709331108", AG = "994709331108";
 const money = n => (Math.round(n * 100) / 100).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " " + L.cur;
 const U = (id, w = 900) => !id ? "" : /^https?:/.test(id) ? id : `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${Math.min(w, 1600)}&q=72`;
 const pic = (id, alt, w, cls = "") => `<div class="pic ${cls}" data-l="${esc((alt || C.brand).trim()[0])}"><img src="${U(id, w)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()"></div>`;
@@ -1059,7 +1059,7 @@ V.contact = {
   render() {
     const K = C.contact; seo("Əlaqə", "Ünvan, iş saatları və WhatsApp ilə əlaqə.");
     return `<section class="pg"><div class="w ct"><div class="rv">${eyebrow("Əlaqə")}<h1>Bizimlə əlaqə</h1><p class="lead">${K.lead || "Sualınız varsa, WhatsApp-da yazın. Adətən iş saatlarında tez cavab veririk."}</p>
-<ul class="clist"><li><b>WhatsApp</b><span>+${WA.replace(/(\d{3})(\d{2})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")} (nümunə nömrə)</span></li><li><b>Ünvan</b><span>${K.addr}</span></li><li><b>İş saatları</b><span>${K.hours}</span></li>${K.extra ? K.extra.map(e => `<li><b>${e[0]}</b><span>${e[1]}</span></li>`).join("") : ""}<li><b>Sosial şəbəkə</b><span>Instagram və TikTok linkləri əlavə olunacaq</span></li></ul>
+<ul class="clist"><li><b>WhatsApp</b><span>+${WA.replace(/(\d{3})(\d{2})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")} (demo: mesajlar sayt hazırlayana, Valeh-ə gəlir)</span></li><li><b>Ünvan</b><span>${K.addr}</span></li><li><b>İş saatları</b><span>${K.hours}</span></li>${K.extra ? K.extra.map(e => `<li><b>${e[0]}</b><span>${e[1]}</span></li>`).join("") : ""}<li><b>Sosial şəbəkə</b><span>Instagram və TikTok linkləri əlavə olunacaq</span></li></ul>
 <div class="row">${btnWa("WhatsApp ilə yazın")}</div></div>
 ${T >= 2 ? `<div class="map rv"><iframe title="Xəritə" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${encodeURIComponent(K.mapQ || "Bakı")}&output=embed"></iframe></div>` : ""}</div></section>`;
   }
