@@ -816,7 +816,7 @@ offer: {
 
 </script>
 <script>
-/* Valeh Digital — demo mühərriki (Start / Plus / Premium). Konfiqurasiya CFG obyektindən gəlir. */
+/* Valeh Nexus X — demo mühərriki (Start / Plus / Premium). Konfiqurasiya CFG obyektindən gəlir. */
 (function () {
 "use strict";
 const C = window.CFG, T = window.TIER, TN = ["", "start", "plus", "premium"][T];
@@ -1059,7 +1059,7 @@ V.contact = {
   render() {
     const K = C.contact; seo("Əlaqə", "Ünvan, iş saatları və WhatsApp ilə əlaqə.");
     return `<section class="pg"><div class="w ct"><div class="rv">${eyebrow("Əlaqə")}<h1>Bizimlə əlaqə</h1><p class="lead">${K.lead || "Sualınız varsa, WhatsApp-da yazın. Adətən iş saatlarında tez cavab veririk."}</p>
-<ul class="clist"><li><b>WhatsApp</b><span>+${WA.replace(/(\d{3})(\d{2})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")} (demo: mesajlar sayt hazırlayana, Valeh-ə gəlir)</span></li><li><b>Ünvan</b><span>${K.addr}</span></li><li><b>İş saatları</b><span>${K.hours}</span></li>${K.extra ? K.extra.map(e => `<li><b>${e[0]}</b><span>${e[1]}</span></li>`).join("") : ""}<li><b>Sosial şəbəkə</b><span>Instagram və TikTok linkləri əlavə olunacaq</span></li></ul>
+<ul class="clist"><li><b>WhatsApp</b><span>+${WA.replace(/(\d{3})(\d{2})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5")} (demo: mesajlar sayt hazırlayana, Valeh Nexus X-ə gəlir)</span></li><li><b>Ünvan</b><span>${K.addr}</span></li><li><b>İş saatları</b><span>${K.hours}</span></li>${K.extra ? K.extra.map(e => `<li><b>${e[0]}</b><span>${e[1]}</span></li>`).join("") : ""}<li><b>Sosial şəbəkə</b><span>Instagram və TikTok linkləri əlavə olunacaq</span></li></ul>
 <div class="row">${btnWa("WhatsApp ilə yazın")}</div></div>
 ${T >= 2 ? `<div class="map rv"><iframe title="Xəritə" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${encodeURIComponent(K.mapQ || "Bakı")}&output=embed"></iframe></div>` : ""}</div></section>`;
   }
@@ -1169,11 +1169,12 @@ V.offer = {
     const exc = O.exc || ["Ödənişli WordPress temaları", "Premium plugin və lisenziyalar", "Ödəniş provayderinin komissiyaları", "SMS və digər üçüncü tərəf xidmətləri"];
     const links = ["start", "plus", "premium"].map(k => `<a class="tlink ${k === TN ? "on" : ""}" href="${k === TN ? "#/" : `../demo-${k}-${C.key}/`}"><small>${names[k]}</small><b>${money(O[k].price)}</b><span>${O[k].for}</span>${k === TN ? "<em>Bu demo</em>" : "<em>Demoya bax →</em>"}</a>`).join("");
     const cmp = T >= 3 && O.compare ? `<h2 class="mt">Paketlərin müqayisəsi</h2><div class="tbl"><table><thead><tr><th></th><th>Start</th><th>Plus</th><th class="hl">Premium</th></tr></thead><tbody>${O.compare.map(r => `<tr><td>${r[0]}</td>${r.slice(1).map((v, i) => `<td class="${i === 2 ? "hl" : ""}">${v === true ? "✓" : v === false ? "—" : v}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "";
-    return `<section class="pg offer"><div class="w"><div class="oh"><div>${eyebrow("Valeh Digital · Sayt təklifi")}<h1>${O.headline || "Bu sayt sizin biznesiniz üçün"}</h1><p class="lead">${me.lead}</p></div>
+    return `<section class="pg offer"><div class="w"><div class="oh"><div>${eyebrow("Valeh Nexus X · Sayt təklifi")}<h1>${O.headline || "Bu sayt sizin biznesiniz üçün"}</h1><p class="lead">${me.lead}</p></div>
 <div class="opc"><small>${names[TN]} paketi</small><div class="amt">${(me.price).toLocaleString("en-US")} <span>AZN</span></div><p>Bir dəfəlik layihə haqqı. Domen və hostinq sizin seçiminizdir.</p><a class="btn pri wide" target="_blank" rel="noopener" href="${vd}">Bu paketlə maraqlanıram</a></div></div>
 <div class="tlinks">${links}</div>
 <div class="two"><div><h2>Qiymətə daxildir</h2>${lst(me.inc)}</div><div><h2>Qiymətə daxil deyil</h2>${lst([...exc, ...(me.exc || [])], 1)}${O.platformNote ? `<p class="note">${O.platformNote}</p>` : ""}</div></div>
 <div class="dh2 mt"><div><p class="eyebrow">Sizin seçiminiz</p><h2>Domen və hostinq</h2><p>Saytınız, domeniniz və hostinqiniz həmişə sizin adınıza olur. Bizdən asılı qalmırsınız və istədiyiniz vaxt başqa mütəxəssisə keçə bilərsiniz.</p></div>${lst(["Domen və ya hostinqiniz varsa, onu istifadə edirik", "Yoxdursa, sizin adınıza qeydiyyatdan keçirib quraşdırırıq", "Xərci birbaşa provayderə ödəyirsiniz, üstünə heç nə əlavə etmirik", "Quraşdırma və texniki sazlama paketə daxildir"])}</div>
+<div class="two mt"><div><h2>Dizayn seçimi</h2>${lst(T < 3 ? ["Bu demonun görünüşü, sizin rəng və loqonuzla", "və ya seçdiyiniz hazır WordPress teması, sizin rəng və loqonuzla", "Qiymət eynidir: quraşdırma, məzmunun yüklənməsi, mobil uyğunluq və dəstək daxildir"] : ["Bu demonun dizaynı sizə özəl olaraq WordPress-də 1:1 qurulur", "Hazır tema şablonu istifadə olunmur", "Rəng, şrift və bölmələr brendinizə uyğunlaşdırılır"])}</div><div><h2>Hazır temalar</h2><p>Start və Plus paketlərində demo əvəzinə məşhur WordPress temalarından birini də seçə bilərsiniz.</p><p class="mt"><a class="btn line" target="_blank" rel="noopener" href="https://aze1411-cpu.github.io/valeh/temalar.html">Hazır temalara baxın</a></p></div></div>
 ${cmp}
 <h2 class="mt">İş prosesi</h2><div class="osteps">${[["Demo", "Bu sayt kompüterdə və telefonda yoxlanılır."], ["Razılaşma", "Paket, iş həcmi, müddət, müqavilə və ödəniş qaydası dəqiqləşir."], ["WordPress-ə köçürmə", `Təsdiqlənmiş dizayn sizin domeninizdə WordPress-də qurulur${O.stack && O.stack[TN] ? " (" + O.stack[TN] + ")" : ""}.`], ["Test", "Mobil və kompüter görünüşü, formalar və sifariş düymələri yoxlanılır."], ["Təhvil", "Admin panelin istifadəsi göstərilir və sayt təhvil verilir."]].map((s, i) => `<div><i>0${i + 1}</i><b>${s[0]}</b><span>${s[1]}</span></div>`).join("")}</div>
 <div class="two mt"><div><h2>Ödəniş</h2>${lst([...(T === 1 ? ["50% işə başlayanda", "50% sayt canlıya çıxmazdan əvvəl"] : T === 2 ? ["40% işə başlayanda", "30% dizayn təsdiqlənəndə", "30% sayt canlıya çıxmazdan əvvəl"] : ["30% işə başlayanda", "40% dizayn təsdiqlənəndə", "30% sayt canlıya çıxmazdan əvvəl"]), "Taksit kartı (Birkart, Tamkart) ilə ödənişi aylara bölə bilərsiniz", "Kiçikdən başlaya bilərsiniz: sonra daha böyük paketə keçəndə yalnız qiymət fərqini ödəyirsiniz", "Sayt canlıya çıxandan sonra heç bir borc qalmır"])}</div><div><h2>Sizdən lazım olanlar</h2>${lst(O.needs)}</div></div>
@@ -1205,7 +1206,7 @@ function shell() {
 <div><b>Naviqasiya</b><a href="#/catalog">${L.catalog}</a><a href="#/about">Haqqımızda</a><a href="#/contact">Əlaqə</a>${T >= 3 && C.gallery ? `<a href="#/gallery">Qalereya</a>` : ""}${T >= 3 && C.special ? `<a href="#/${C.special.route}">${C.special.nav}</a>` : ""}</div>
 <div><b>Kömək</b><a href="#/${T >= 3 ? "faq" : "info"}">${T >= 3 ? "Suallar" : L.infoNav}</a>${T >= 3 ? `<a href="#/info">${L.infoNav}</a><a href="#/favorites">Seçilmişlər</a>` : ""}<a href="#/checkout">${L.checkout}</a></div>
 <div><b>Əlaqə</b><a target="_blank" rel="noopener" href="${wa(L.waGeneral)}">WhatsApp</a><span class="small">Instagram və TikTok linkləri əlavə olunacaq</span></div></div>
-<div class="w fb"><span>© ${esc(C.brand)}. Demo layihə: bütün məlumatlar nümunədir. Fotolar: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</span><a class="ofl" href="#/offer">Valeh Digital · bu saytın təklifi →</a></div></footer>`;
+<div class="w fb"><span>© ${esc(C.brand)}. Demo layihə: bütün məlumatlar nümunədir. Fotolar: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</span><a class="ofl" href="#/offer">Valeh Nexus X · bu saytın təklifi →</a></div></footer>`;
   document.body.innerHTML = `<a class="skip" href="#app">Məzmuna keç</a>${hdr}<main id="app" tabindex="-1"></main>${foot}
 <a class="fab" id="fab" target="_blank" rel="noopener" href="${wa(L.waGeneral)}" aria-label="WhatsApp ilə yazın">${ico.wa}<span>WhatsApp</span></a>
 <div id="ov" onclick="VD.closeAll()"></div><aside id="cart" aria-label="${L.basket}" aria-hidden="true"><div class="cth"><h3>${L.basketTitle}</h3><button class="ib" onclick="VD.tog(0)" aria-label="Bağla">${ico.x}</button></div><div id="cl"></div><div id="cf"></div></aside>
